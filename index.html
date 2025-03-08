@@ -50,15 +50,18 @@
             display: none;
         }
         img {
-            width: 400px;
-            height: auto;
-            margin: 20px auto;
-            display: block;
+            width: 80%;
+            max-width: 400px;
+            margin-top: 20px;
+            display: none;
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
-        .impostor-img {
-            width: 500px; /* Aumentar el tamaño del Among Us */
+        @media (max-width: 600px) { 
+            img {
+                width: 90%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -111,24 +114,22 @@
             if (nombre === "santiago" && edad === 20 && dia === 11 && mes === 3 && anio === 2005 && (confirmacion === "sí" || confirmacion === "si")) {
                 resultado.innerHTML = "🎉 ¡Feliz cumpleaños 20, Santiago! Que sean muchos más. 🎂🥳 Se autoriza destapar el Bailey's.";
                 resultado.style.color = "#4CAF50";
-                imagen.src = "cumpleanero.jpg";
-                imagen.classList.remove("impostor-img");
+                imagen.src = "santi.jpeg"; // Reemplaza con la URL o el nombre de la imagen
             } else {
                 resultado.innerHTML = "🛑 Usted es un impostor. 🚨 No se autoriza el consumo del Bailey's, devolver a Mafe.";
                 resultado.style.color = "red";
-                imagen.src = "amongus.png";
-                imagen.classList.add("impostor-img");
+                imagen.src = "impostor2.jpg"; // Asegúrate de subir el GIF al repositorio
             }
             
             formulario.classList.add("hidden");
             resultado.style.display = "block";
-            
+
+            // Espera 2 segundos y luego muestra la imagen con efecto fade-in
             setTimeout(() => {
-                imagen.style.opacity = "1";
                 imagen.style.display = "block";
+                imagen.style.opacity = "1";
             }, 2000);
         }
     </script>
 </body>
 </html>
-
